@@ -83,6 +83,16 @@
           "target": [
             "TargetView1form"
           ]
+        },
+        {
+            "pattern": "materialForm",
+            "name": "materialForm",
+            "target": "materialForm"
+        },
+        {
+            "pattern": "serviceForm",
+            "name": "serviceForm",
+            "target": "serviceForm"
         }
       ],
       "targets": {
@@ -90,8 +100,19 @@
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
+          "viewLevel": 1,
           "viewId": "View1form",
           "viewName": "View1form"
+        },
+        "materialForm": {
+            "viewName": "MaterialForm",
+            "viewLevel": 2,
+            "viewId": "MaterialForm"
+        },
+        "serviceForm": {
+            "viewName": "ServiceForm",
+            "viewLevel": 2,
+            "viewId": "ServiceForm"
         }
       }
     },

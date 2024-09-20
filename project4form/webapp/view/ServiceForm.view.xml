@@ -1,0 +1,18 @@
+<mvc:View
+    controllerName="project4form.controller.View1form"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m">
+    <Page id="_IDGenPage2" title="Service Order Form">
+        <content>
+            <f:SimpleForm id="_IDGenSimpleForm1">
+                <Label id="_IDGenLabel2" text="Service No"/>
+                <Input id="serviceNo"/>
+                <Label id="_IDGenLabel3" text="Contract Number"/>
+                <Input id="contractNo"/>
+                <!-- Diğer alanlar -->
+                <Button id="_IDGenButton3" text="Submit" press=".onSubmit"/>
+            </f:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

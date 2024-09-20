@@ -1,0 +1,18 @@
+<mvc:View
+    controllerName="project4form.controller.View1form"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m">
+    <Page id="_IDGenPage1" title="Material Purchase Form">
+        <content>
+            <f:SimpleForm id="_IDGenSimpleForm">
+                <Label id="_IDGenLabel" text="Material No"/>
+                <Input id="materialNo"/>
+                <Label id="_IDGenLabel1" text="Supplier"/>
+                <Input id="supplier"/>
+                <!-- Diğer alanlar -->
+                <Button id="_IDGenButton2" text="Submit" press=".onSubmit"/>
+            </f:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>         
