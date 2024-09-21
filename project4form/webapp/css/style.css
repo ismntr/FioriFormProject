@@ -1,1 +1,7 @@
 /* Enter your custom styles here */
+.customButton {
+    background-color: #0078d4;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+}

@@ -3,16 +3,104 @@
     xmlns:mvc="sap.ui.core.mvc" 
     xmlns:f="sap.ui.layout.form"
     xmlns="sap.m">
-    <Page id="_IDGenPage2" title="Service Order Form">
+    <Page id="_IDGenPageService" title="Service Order Details" class="sapUiContent">
         <content>
-            <f:SimpleForm id="_IDGenSimpleForm1">
-                <Label id="_IDGenLabel2" text="Service No"/>
-                <Input id="serviceNo"/>
-                <Label id="_IDGenLabel3" text="Contract Number"/>
-                <Input id="contractNo"/>
-                <!-- Diğer alanlar -->
-                <Button id="_IDGenButton3" text="Submit" press=".onSubmit"/>
+            <f:SimpleForm id="_IDGenSimpleFormService" layout="ResponsiveGridLayout" width="100%">
+                <Label id="_IDGenLabelSASService" text="Satın Alma Sipariş No (SAS No)"/>
+                <Input id="sasNoService" editable="false"/> <!-- SAS’dan akacak bilgi -->
+
+                <Label id="_IDGenLabelProviderService" text="Hizmet Sağlayıcı Adı"/>
+                <Input id="serviceProviderNameService"/> <!-- Opsiyonel -->
+
+                <Label id="_IDGenLabelContactService" text="Hizmet Sağlayıcı İletişim Bilgileri"/>
+                <Input id="serviceProviderContactService"/> <!-- Opsiyonel -->
+
+                <Label id="_IDGenLabelDescriptionService" text="Alınan Hizmet Adı/ Açıklaması"/>
+                <TextArea id="serviceDescriptionService"/> <!-- Opsiyonel -->
+
+                <Label id="_IDGenLabelServiceDateService" text="Hizmetin Tarihi"/>
+                <DatePicker id="serviceDateService"/> <!-- Tarih seçme ekranı -->
+
+                <Label id="_IDGenLabelRecipientService" text="Alıcı Adı/ Şirket Adı"/>
+                <Input id="recipientNameService"/> <!-- Opsiyonel -->
+
+                <Label id="_IDGenLabelRecipientContactService" text="Alıcı İletişim Bilgileri"/>
+                <Input id="recipientContactService"/> <!-- Opsiyonel -->
+
+                <Label id="_IDGenLabelInvoiceService" text="Fatura No"/>
+                <Input id="invoiceNoService" maxLength="30"/> <!-- Opsiyonel -->
+
+                <Label id="_IDGenLabelLocationService" text="Hizmetin Yapıldığı Yer"/>
+                <Input id="serviceLocationService"/> <!-- Opsiyonel -->
+
+                <Label id="_IDGenLabelArrivalDateService" text="Hizmet Geliş Tarihi"/>
+                <DatePicker id="arrivalDateService"/> <!-- Tarih seçme ekranı -->
+
+                <Label id="_IDGenLabelContractExistsService" text="Sözleşme Var mı?"/>
+                <RadioButtonGroup id="contractExistsService" columns="2">
+                    <buttons>
+                        <RadioButton id="_IDGenRadioButtonYesService" text="Evet" selected="true"/>
+                        <RadioButton id="_IDGenRadioButtonNoService" text="Hayır"/>
+                    </buttons>
+                </RadioButtonGroup>
+
+                <Label id="_IDGenLabelContractNoService" text="Sözleşme No"/>
+                <Input id="contractNoService" maxLength="10" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+
+                <Label id="_IDGenLabelContractNameService" text="Sözleşme Adı"/>
+                <Input id="contractNameService" maxLength="80" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+
+                <Label id="_IDGenLabelContractValueService" text="Sözleşme Bedeli"/>
+                <Input id="contractValueService" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+
+                <Label id="_IDGenLabelContractDateService" text="Sözleşme Tarihi"/>
+                <DatePicker id="contractDateService" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+
+                <Label id="_IDGenLabelContractDurationService" text="Sözleşmeye göre işin süresi (takvim günü)"/>
+                <Input id="contractDurationService" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+
+                <Label id="_IDGenLabelTemporaryDateService" text="Varsa Geçici Kabul tarihi"/>
+                <DatePicker id="temporaryAcceptanceDateService"/> <!-- Opsiyonel -->
+
+                <Label id="_IDGenLabelContractEndDateService" text="Sözleşmeye göre işin bitim tarihi"/>
+                <DatePicker id="contractEndDateService"/> <!-- Opsiyonel -->
+
+                <Label id="_IDGenLabelGuaranteeService" text="Varsa Teminat türü ve bedeli"/>
+                <Input id="guaranteeTypeService"/> <!-- Opsiyonel -->
+
+                <Label id="_IDGenLabelNotesService" text="Notlar"/>
+                <TextArea id="notesService"/> <!-- En alta koymamız gerekiyor -->
+
+                <Label id="_IDGenLabelServiceQuantityService" text="Gelen Hizmet Miktarı"/>
+                <RadioButtonGroup id="serviceQuantityService" columns="2">
+                    <buttons>
+                        <RadioButton id="_IDGenRadioButtonQuantityYesService" text="Uygun"/>
+                        <RadioButton id="_IDGenRadioButtonQuantityNoService" text="Uygun değil"/>
+                    </buttons>
+                </RadioButtonGroup>
+
+                <Label id="_IDGenLabelContractItemsService" text="İlgili Sözleşme Maddeleri"/>
+                <Input id="contractItemsService"/> <!-- Opsiyonel -->
+
+                <Label id="_IDGenLabelApproverService" text="Kabul Yapan"/>
+                <Label id="_IDGenLabelApproverNameService" text="Adı Soyadı"/>
+                <Input id="approverNameService"/>
+                <Label id="_IDGenLabelApproverTitleService" text="Unvanı"/>
+                <Input id="approverTitleService"/>
+                <Label id="_IDGenLabelApprovalDateService" text="Tarih"/>
+                <DatePicker id="approvalDateService"/>
+                <Label id="_IDGenLabelSignatureService" text="İmza"/>
+                <Input id="signatureService"/> <!-- Onaycı buraya gelecek -->
+
             </f:SimpleForm>
         </content>
+                <footer>
+        <Toolbar id="_IDGenToolbarService" class="sapUiMediumMargin" >
+          <ToolbarSpacer id="_IDGenToolbarSpacerUnique2" />
+            <Button id="_IDGenButtonRejectService" text="Reject" type="Reject" press=".onCancel"/>
+            <Button id="_IDGenButtonSubmitService" text="Submit" press=".onSubmit"/>
+            <ToolbarSpacer id="_IDGenToolbarSpacerUnique" />
+        </Toolbar>
+    </footer>
     </Page>
 </mvc:View>

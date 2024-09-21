@@ -3,16 +3,106 @@
     xmlns:mvc="sap.ui.core.mvc" 
     xmlns:f="sap.ui.layout.form"
     xmlns="sap.m">
-    <Page id="_IDGenPage1" title="Material Purchase Form">
-        <content>
-            <f:SimpleForm id="_IDGenSimpleForm">
-                <Label id="_IDGenLabel" text="Material No"/>
-                <Input id="materialNo"/>
-                <Label id="_IDGenLabel1" text="Supplier"/>
-                <Input id="supplier"/>
-                <!-- Diğer alanlar -->
-                <Button id="_IDGenButton2" text="Submit" press=".onSubmit"/>
-            </f:SimpleForm>
-        </content>
-    </Page>
-</mvc:View>         
+<Page id="_IDGenPage" title="Material Purchase Form" class="sapUiContent">
+    <content>
+        <f:SimpleForm id="_IDGenSimpleForm" layout="ResponsiveGridLayout" width="auto">
+            <Label id="_IDGenLabel1" text="Satın Alma Sipariş No (SAS No)"/>
+            <Input id="sasNo" editable="false"/> <!-- SAS’dan akacak bilgi -->
+
+            <Label id="_IDGenLabel2" text="Alınan Ürün/Malzeme/Hizmet Adı"/>
+            <TextArea id="productDetails"/> <!-- SAS’dan akacak, alt alta gelecek malzemeler -->
+
+            <Label id="_IDGenLabel3" text="Tedarikçi Firma"/>
+            <Input id="supplier" editable="false"/> <!-- SAS’dan akacak veri -->
+
+            <Label id="_IDGenLabel4" text="İrsaliye No"/>
+            <Input id="deliveryNo" maxLength="30"/> <!-- Opsiyonel -->
+
+            <Label id="_IDGenLabel5" text="Fatura No"/>
+            <Input id="invoiceNo" maxLength="30"/> <!-- Opsiyonel -->
+
+            <Label id="_IDGenLabel6" text="Model No"/>
+            <Input id="modelNo" maxLength="50"/> <!-- Ürün veya Malzeme olursa olacak -->
+
+            <Label id="_IDGenLabel7" text="Seri No"/>
+            <Input id="serialNo" maxLength="50"/> <!-- Ürün veya Malzeme olursa olacak -->
+
+            <Label id="_IDGenLabel8" text="Ürün-Malzeme/Hizmet Geliş Tarihi"/>
+            <DatePicker id="arrivalDate"/> <!-- Tarih seçme ekranı -->
+
+            <Label id="_IDGenLabel9" text="Sözleşme Var mı?"/>
+            <RadioButtonGroup id="contractExists" columns="2">
+                <buttons>
+                    <RadioButton id="_IDGenRadioButton1" text="Evet" selected="true"/>
+                    <RadioButton id="_IDGenRadioButton2" text="Hayır"/>
+                </buttons>
+            </RadioButtonGroup>
+
+            <Label id="_IDGenLabel10" text="Sözleşme No"/>
+            <Input id="uniqueContractNo" maxLength="10" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+
+            <Label id="_IDGenLabel11" text="Sözleşme Adı"/>
+            <Input id="contractName" maxLength="80" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+
+            <Label id="_IDGenLabel12" text="Sözleşme Bedeli"/>
+            <Input id="contractValue" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+
+            <Label id="_IDGenLabel13" text="Sözleşme Tarihi"/>
+            <DatePicker id="contractDate" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+
+            <Label id="_IDGenLabel14" text="Sözleşmeye göre işin süresi (takvim günü)"/>
+            <Input id="contractDuration" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+
+            <Label id="_IDGenLabel15" text="Varsa Geçici Kabul tarihi"/>
+            <DatePicker id="temporaryAcceptanceDate"/> <!-- Opsiyonel -->
+
+            <Label id="_IDGenLabel16" text="Sözleşmeye göre işin bitim tarihi"/>
+            <DatePicker id="contractEndDate"/> <!-- Opsiyonel -->
+
+            <Label id="_IDGenLabel17" text="Varsa Teminat türü ve bedeli"/>
+            <Input id="guaranteeType"/> <!-- Opsiyonel -->
+
+            <Label id="_IDGenLabel18" text="Notlar"/>
+            <TextArea id="notes"/> <!-- En alta koymamız gerekiyor -->
+
+            <Label id="_IDGenLabel19" text="Gelen Malzeme/ Ürün/Hizmet Miktarı"/>
+            <RadioButtonGroup id="materialQuantity" columns="2">
+                <buttons>
+                    <RadioButton id="_IDGenRadioButton3" text="Uygun"/>
+                    <RadioButton id="_IDGenRadioButton4" text="Uygun değil"/>
+                </buttons>
+            </RadioButtonGroup>
+
+            <Label id="_IDGenLabel20" text="Kontrol Edilen Teknik Özellikler"/>
+            <RadioButtonGroup id="technicalFeatures" columns="2">
+                <buttons>
+                    <RadioButton id="_IDGenRadioButton5" text="Uygun"/>
+                    <RadioButton id="_IDGenRadioButton6" text="Uygun değil"/>
+                </buttons>
+            </RadioButtonGroup>
+
+            <Label id="_IDGenLabel21" text="İlgili Sözleşme Maddeleri"/>
+            <Input id="contractItems"/> <!-- Opsiyonel -->
+
+            <Label id="_IDGenLabel22" text="Kabul Yapan"/>
+            <Label id="_IDGenLabel23" text="Adı Soyadı"/>
+            <Input id="approverName"/>
+            <Label id="_IDGenLabel24" text="Unvanı"/>
+            <Input id="approverTitle"/>
+            <Label id="_IDGenLabel25" text="Tarih"/>
+            <DatePicker id="approvalDate"/>
+            <Label id="_IDGenLabel26" text="İmza"/>
+            <Input id="signature"/> <!-- Onaycı buraya gelecek -->
+
+           
+        </f:SimpleForm>
+    </content>
+        <footer>
+        <Toolbar id="_IDGenToolbar1" class="sapUiMediumMargin" >
+            <Button id="_IDGenButton3" text="Reject" type="Reject" press=".onCancel"/>
+            <ToolbarSpacer id="_IDGenToolbarSpacer" />
+            <Button class="sapUiMediumMargin" id="_IDGenButton2" text="Submit" press=".onSubmit" type="Emphasized"/>
+        </Toolbar>
+    </footer>
+</Page>
+</mvc:View>
