@@ -2,13 +2,19 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/routing/History",
     "sap/ui/core/UIComponent",
-    "sap/ui/model/odata/v2/ODataModel"
+    "sap/ui/model/odata/v2/ODataModel",
+    "sap/m/MessageBox"
 ], 
-function (Controller, History, UIComponent, ODataModel) {
+function (Controller, History, UIComponent, ODataModel, MessageBox) {
     "use strict";
 
     return Controller.extend("project4form.controller.View1form", {
         onInit: function () {
+            this._hasUnsavedChanges = false; // Kaydedilmemiş değişiklikleri takip etmek için flag
+        },
+        onInputChange: function () {
+            // Kullanıcı bir input alanında değişiklik yaptığında
+            this._hasUnsavedChanges = true;
         },
 
         onMaterialFormPress: function () {
@@ -20,9 +26,37 @@ function (Controller, History, UIComponent, ODataModel) {
             var oRouter = UIComponent.getRouterFor(this);
             oRouter.navTo("serviceForm");
         },
-        onCancel: function (evt) {
-            sap.m.MessageToast.show("İptal.");
-		},
+        onCancel: function () {
+            var oHistory = History.getInstance();
+            var sPreviousHash = oHistory.getPreviousHash();
+            this.onInputChange();
+
+            // Eğer kaydedilmemiş değişiklikler varsa uyarı göster
+            if (this._hasUnsavedChanges) {
+                MessageBox.confirm(
+                    "Kaydedilmemiş değişiklikler var. Yine de geri dönmek istiyor musunuz?", {
+                        actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+                        onClose: function (sAction) {
+                            if (sAction === MessageBox.Action.YES) {
+                                // Evet seçilirse önceki ekrana dön
+                                if (sPreviousHash !== undefined) {
+                                    window.history.go(-1);
+                                } else {
+                                    this.getRouter().navTo("home", {}, true);
+                                }
+                            }
+                        }.bind(this)
+                    }
+                );
+            } else {
+                // Eğer kaydedilmemiş veri yoksa doğrudan geri dön
+                if (sPreviousHash !== undefined) {
+                    window.history.go(-1);
+                } else {
+                    this.getRouter().navTo("home", {}, true);
+                }
+            }
+        },
         onSubmit: function () {
             var oModel = this.getView().getModel(); // OData Model
         
