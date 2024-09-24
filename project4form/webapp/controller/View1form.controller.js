@@ -89,6 +89,17 @@ function (Controller, History, UIComponent, ODataModel, MessageBox, PageAccessib
                     sap.m.MessageToast.show("Form gönderilirken hata oluştu.");
                 }
             });
+        },
+        onContractExistsSelect: function (oEvent) {
+            var bSelected = oEvent.getParameter("selectedIndex") === 0;
+            this.getView().byId("uniqueContractNo").setVisible(bSelected);
+            this.getView().byId("contractName").setVisible(bSelected);
+            this.getView().byId("contractValue").setVisible(bSelected);
+            this.getView().byId("contractDate").setVisible(bSelected);
+            this.getView().byId("contractDuration").setVisible(bSelected);
+            this.getView().byId("temporaryAcceptanceDate").setVisible(bSelected);
+            this.getView().byId("contractEndDate").setVisible(bSelected);
+            this.getView().byId("guaranteeType").setVisible(bSelected);
         }
     });
 });

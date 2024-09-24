@@ -16,51 +16,51 @@
             <Input id="supplier" editable="false"/> <!-- SAS’dan akacak veri -->
 
             <Label id="_IDGenLabel4" text="İrsaliye No"/>
-            <Input id="deliveryNo" maxLength="30"/> <!-- Opsiyonel -->
+            <Input id="deliveryNo" type="Number" maxLength="30"/> <!-- Opsiyonel -->
 
             <Label id="_IDGenLabel5" text="Fatura No"/>
-            <Input id="invoiceNo" maxLength="30"/> <!-- Opsiyonel -->
+            <Input id="invoiceNo" type="Number" maxLength="30"/> <!-- Opsiyonel -->
 
             <Label id="_IDGenLabel6" text="Model No"/>
-            <Input id="modelNo" maxLength="50"/> <!-- Ürün veya Malzeme olursa olacak -->
+            <Input id="modelNo" type="Number" maxLength="50"/> <!-- Ürün veya Malzeme olursa olacak -->
 
             <Label id="_IDGenLabel7" text="Seri No"/>
-            <Input id="serialNo" maxLength="50"/> <!-- Ürün veya Malzeme olursa olacak -->
+            <Input id="serialNo" type="Number" maxLength="50"/> <!-- Ürün veya Malzeme olursa olacak -->
 
             <Label id="_IDGenLabel8" text="Ürün-Malzeme/Hizmet Geliş Tarihi"/>
             <DatePicker id="arrivalDate"/> <!-- Tarih seçme ekranı -->
 
             <Label id="_IDGenLabel9" text="Sözleşme Var mı?"/>
-            <RadioButtonGroup id="contractExists" columns="2">
+            <RadioButtonGroup id="contractExists" columns="2" selectedIndex="0" select="onContractExistsSelect">
                 <buttons>
                     <RadioButton id="_IDGenRadioButton1" text="Evet" selected="true"/>
                     <RadioButton id="_IDGenRadioButton2" text="Hayır"/>
                 </buttons>
             </RadioButtonGroup>
 
-            <Label id="_IDGenLabel10" text="Sözleşme No"/>
-            <Input id="uniqueContractNo" maxLength="10" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+            <Label id="_IDGenLabel10" text="Sözleşme No"  visible="{= ${contractExists/selectedIndex} === 0 }" />
+            <Input id="uniqueContractNo" type="Number" maxLength="10" required="true" visible="{= ${contractExists/selectedIndex} === 0 }" /> <!-- Var işaretlendiyse zorunlu -->
 
-            <Label id="_IDGenLabel11" text="Sözleşme Adı"/>
-            <Input id="contractName" maxLength="80" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+            <Label id="_IDGenLabel11" text="Sözleşme Adı" visible="{= ${contractExists/selectedIndex} === 0 }" />
+            <Input id="contractName" maxLength="80" required="true" visible="{= ${contractExists/selectedIndex} === 0 }" /> <!-- Var işaretlendiyse zorunlu -->
 
-            <Label id="_IDGenLabel12" text="Sözleşme Bedeli"/>
-            <Input id="contractValue" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+            <Label id="_IDGenLabel12" text="Sözleşme Bedeli" visible="{= ${contractExists/selectedIndex} === 0 }" />
+            <Input id="contractValue" type="Number" required="true" visible="{= ${contractExists/selectedIndex} === 0 }" /> <!-- Var işaretlendiyse zorunlu -->
 
-            <Label id="_IDGenLabel13" text="Sözleşme Tarihi"/>
+            <Label id="_IDGenLabel13" text="Sözleşme Tarihi" visible="{= ${contractExists/selectedIndex} === 0 }" />
             <DatePicker id="contractDate" required="true"/> <!-- Var işaretlendiyse zorunlu -->
 
-            <Label id="_IDGenLabel14" text="Sözleşmeye göre işin süresi (takvim günü)"/>
-            <Input id="contractDuration" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+            <Label id="_IDGenLabel14" text="Sözleşmeye göre işin süresi (takvim günü)" visible="{= ${contractExists/selectedIndex} === 0 }" />
+            <Input id="contractDuration" type="Number" required="true" visible="{= ${contractExists/selectedIndex} === 0 }" /> <!-- Var işaretlendiyse zorunlu -->
 
-            <Label id="_IDGenLabel15" text="Varsa Geçici Kabul tarihi"/>
-            <DatePicker id="temporaryAcceptanceDate"/> <!-- Opsiyonel -->
+            <Label id="_IDGenLabel15" text="Varsa Geçici Kabul tarihi" visible="{= ${contractExists/selectedIndex} === 0 }" />
+            <DatePicker id="temporaryAcceptanceDate" visible="{= ${contractExists/selectedIndex} === 0 }" /> <!-- Opsiyonel -->
 
-            <Label id="_IDGenLabel16" text="Sözleşmeye göre işin bitim tarihi"/>
-            <DatePicker id="contractEndDate"/> <!-- Opsiyonel -->
+            <Label id="_IDGenLabel16" text="Sözleşmeye göre işin bitim tarihi" visible="{= ${contractExists/selectedIndex} === 0 }" />
+            <DatePicker id="contractEndDate" visible="{= ${contractExists/selectedIndex} === 0 }" /> <!-- Opsiyonel -->
 
-            <Label id="_IDGenLabel17" text="Varsa Teminat türü ve bedeli"/>
-            <Input id="guaranteeType"/> <!-- Opsiyonel -->
+            <Label id="_IDGenLabel17" text="Varsa Teminat türü ve bedeli" visible="{= ${contractExists/selectedIndex} === 0 }" />
+            <Input id="guaranteeType" type="Number" visible="{= ${contractExists/selectedIndex} === 0 }" /> <!-- Opsiyonel -->
 
             <Label id="_IDGenLabel18" text="Notlar"/>
             <TextArea id="notes"/> <!-- En alta koymamız gerekiyor -->
