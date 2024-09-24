@@ -30,6 +30,10 @@
       "desktop": true,
       "tablet": true,
       "phone": true
+    },
+    "theme": "sap_fiori_3",
+    "font": {
+        "collection": "Fiori2"
     }
   },
   "sap.ui5": {

@@ -39,7 +39,7 @@ sap.ui.define([
 							"tiles": [{
 								"tileType": "sap.ushell.ui.tile.StaticTile",
 								"properties": {
-									"title": "Form App Title",
+									"title": "Goods Acceptance Form",
 									"targetURL": "#project4form-display"
 								}
 							}]
@@ -55,7 +55,7 @@ sap.ui.define([
 								"semanticObject": "project4form",
 								"action": "display",
 								"description": "An SAP Fiori form application.",
-								"title": "Form App Title",
+								"title": "Goods Acceptance Form",
 								"signature": {
 									"parameters": {}
 								},

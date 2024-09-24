@@ -9,7 +9,7 @@
 |**Service Type**<br>None|
 |**Service URL**<br>N/A|
 |**Module Name**<br>project4form|
-|**Application Title**<br>Form App Title|
+|**Application Title**<br>Goods Acceptance Form|
 |**Namespace**<br>|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.128.1|

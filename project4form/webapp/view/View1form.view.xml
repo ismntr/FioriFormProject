@@ -6,7 +6,7 @@
     displayBlock="true">
     <Page id="page" title="{i18n>title}">
         <content>
-           
+        
                 <GenericTile class="sapUiMediumMargin"
                     id="_IDGenButton"
                     press=".onMaterialFormPress"
@@ -23,7 +23,7 @@
                     header="Service Form">
                     <TileContent id="_IDGenTileContent2">
                         <VBox id="_IDGenVBox1" justifyContent="Center" alignItems="Center">
-                            <core:Icon id="_IDGenIcon1" src="sap-icon://enablement" size="3rem" />
+                            <core:Icon id="_IDGenIcon1" src="sap-icon://people-connected" size="3rem" />
                         </VBox>
                     </TileContent>
                 </GenericTile>

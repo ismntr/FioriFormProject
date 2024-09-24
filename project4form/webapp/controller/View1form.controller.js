@@ -3,9 +3,10 @@ sap.ui.define([
     "sap/ui/core/routing/History",
     "sap/ui/core/UIComponent",
     "sap/ui/model/odata/v2/ODataModel",
-    "sap/m/MessageBox"
+    "sap/m/MessageBox",
+    "sap/m/PageAccessibleLandmarkInfo" 
 ], 
-function (Controller, History, UIComponent, ODataModel, MessageBox) {
+function (Controller, History, UIComponent, ODataModel, MessageBox, PageAccessibleLandmarkInfo) {
     "use strict";
 
     return Controller.extend("project4form.controller.View1form", {
