@@ -99,9 +99,10 @@
     </content>
         <footer>
         <Toolbar id="_IDGenToolbar1" class="sapUiMediumMargin" >
-            <Button id="_IDGenButton3" text="Reject" type="Reject" press=".onCancel"/>
-            <ToolbarSpacer id="_IDGenToolbarSpacer" />
-            <Button class="sapUiMediumMargin" id="_IDGenButton2" text="Submit" press=".onSubmit" type="Emphasized"/>
+        <ToolbarSpacer id="_IDGenToolbarSpacer2" />
+                <ToolbarSpacer id="_IDGenToolbarSpacerUnique2"/>
+                <Button class="sapUiMediumMargin" id="_IDGenButton2" text="Submit" press=".onSubmit" type="Emphasized"/>
+                <Button class="sapUiMediumMargin" id="_IDGenButton3" text="Reject" press=".onCancel" type="Reject"/>
         </Toolbar>
     </footer>
 </Page>

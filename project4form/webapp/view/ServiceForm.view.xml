@@ -97,10 +97,9 @@
         </content>
         <footer>
             <Toolbar id="_IDGenToolbarService" class="sapUiMediumMargin" >
-                <ToolbarSpacer id="_IDGenToolbarSpacerUnique2" />
-                <Button id="_IDGenButtonRejectService" text="Reject" type="Reject" press=".onCancel"/>
-                <Button id="_IDGenButtonSubmitService" text="Submit" press=".onSubmit"/>
-                <ToolbarSpacer id="_IDGenToolbarSpacerUnique" />
+                <ToolbarSpacer id="_IDGenToolbarSpacerUnique2"/>
+                <Button class="sapUiMediumMargin" id="_IDGenButton5" text="Submit" press=".onSubmit" type="Emphasized"/>
+                <Button class="sapUiMediumMargin" id="_IDGenButton4" text="Reject" press=".onCancel" type="Reject"/>
             </Toolbar>
         </footer>
     </Page>
