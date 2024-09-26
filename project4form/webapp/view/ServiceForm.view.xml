@@ -37,36 +37,37 @@
                 <DatePicker id="arrivalDateService"/> <!-- Tarih seçme ekranı -->
 
                 <Label id="_IDGenLabelContractExistsService" text="Sözleşme Var mı?"/>
-                <RadioButtonGroup id="contractExistsService" columns="2">
+                <RadioButtonGroup id="contractExistsService" columns="2" selectedIndex="0" select="onContractExistsServiceSelect">
                     <buttons>
                         <RadioButton id="_IDGenRadioButtonYesService" text="Evet" selected="true"/>
                         <RadioButton id="_IDGenRadioButtonNoService" text="Hayır"/>
                     </buttons>
                 </RadioButtonGroup>
 
-                <Label id="_IDGenLabelContractNoService" text="Sözleşme No"/>
-                <Input id="contractNoService" maxLength="10" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+                <Label id="_IDGenLabelContractNoService" text="Sözleşme No" visible="{= ${contractExistsService/selectedIndex} === 0 }" />
+                <Input id="contractNoService" maxLength="10" required="true" visible="{= ${contractExistsService/selectedIndex} === 0 }"/> 
 
-                <Label id="_IDGenLabelContractNameService" text="Sözleşme Adı"/>
-                <Input id="contractNameService" maxLength="80" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+                <Label id="_IDGenLabelContractNameService" text="Sözleşme Adı" visible="{= ${contractExistsService/selectedIndex} === 0 }" />
+                <Input id="contractNameService" maxLength="80" required="true" visible="{= ${contractExistsService/selectedIndex} === 0 }"/> 
 
-                <Label id="_IDGenLabelContractValueService" text="Sözleşme Bedeli"/>
-                <Input id="contractValueService" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+                <Label id="_IDGenLabelContractValueService" text="Sözleşme Bedeli" visible="{= ${contractExistsService/selectedIndex} === 0 }" />
+                <Input id="contractValueService" required="true" visible="{= ${contractExistsService/selectedIndex} === 0 }"/> 
 
-                <Label id="_IDGenLabelContractDateService" text="Sözleşme Tarihi"/>
-                <DatePicker id="contractDateService" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+                <Label id="_IDGenLabelContractDateService" text="Sözleşme Tarihi" visible="{= ${contractExistsService/selectedIndex} === 0 }" />
+                <DatePicker id="contractDateService" required="true" visible="{= ${contractExistsService/selectedIndex} === 0 }"/> 
 
-                <Label id="_IDGenLabelContractDurationService" text="Sözleşmeye göre işin süresi (takvim günü)"/>
-                <Input id="contractDurationService" required="true"/> <!-- Var işaretlendiyse zorunlu -->
+                <Label id="_IDGenLabelContractDurationService" text="Sözleşmeye göre işin süresi (takvim günü)" visible="{= ${contractExistsService/selectedIndex} === 0 }" />
+                <Input id="contractDurationService" required="true" visible="{= ${contractExistsService/selectedIndex} === 0 }"/> 
 
-                <Label id="_IDGenLabelTemporaryDateService" text="Varsa Geçici Kabul tarihi"/>
-                <DatePicker id="temporaryAcceptanceDateService"/> <!-- Opsiyonel -->
+                <Label id="_IDGenLabelTemporaryDateService" text="Varsa Geçici Kabul tarihi" visible="{= ${contractExistsService/selectedIndex} === 0 }" />
+                <DatePicker id="temporaryAcceptanceDateService" visible="{= ${contractExistsService/selectedIndex} === 0 }"/> 
 
-                <Label id="_IDGenLabelContractEndDateService" text="Sözleşmeye göre işin bitim tarihi"/>
-                <DatePicker id="contractEndDateService"/> <!-- Opsiyonel -->
+                <Label id="_IDGenLabelContractEndDateService" text="Sözleşmeye göre işin bitim tarihi" visible="{= ${contractExistsService/selectedIndex} === 0 }" />
+                <DatePicker id="contractEndDateService" visible="{= ${contractExistsService/selectedIndex} === 0 }"/> 
+                
 
-                <Label id="_IDGenLabelGuaranteeService" text="Varsa Teminat türü ve bedeli"/>
-                <Input id="guaranteeTypeService"/> <!-- Opsiyonel -->
+                <Label id="_IDGenLabelGuaranteeService" text="Varsa Teminat türü ve bedeli" visible="{= ${contractExistsService/selectedIndex} === 0 }" />
+                <Input id="guaranteeTypeService" visible="{= ${contractExistsService/selectedIndex} === 0 }"/> 
 
                 <Label id="_IDGenLabelNotesService" text="Notlar"/>
                 <TextArea id="notesService"/> <!-- En alta koymamız gerekiyor -->
@@ -91,16 +92,16 @@
                 <DatePicker id="approvalDateService"/>
                 <Label id="_IDGenLabelSignatureService" text="İmza"/>
                 <Input id="signatureService"/> <!-- Onaycı buraya gelecek -->
-
+           
             </f:SimpleForm>
         </content>
-                <footer>
-        <Toolbar id="_IDGenToolbarService" class="sapUiMediumMargin" >
-          <ToolbarSpacer id="_IDGenToolbarSpacerUnique2" />
-            <Button id="_IDGenButtonRejectService" text="Reject" type="Reject" press=".onCancel"/>
-            <Button id="_IDGenButtonSubmitService" text="Submit" press=".onSubmit"/>
-            <ToolbarSpacer id="_IDGenToolbarSpacerUnique" />
-        </Toolbar>
-    </footer>
+        <footer>
+            <Toolbar id="_IDGenToolbarService" class="sapUiMediumMargin" >
+                <ToolbarSpacer id="_IDGenToolbarSpacerUnique2" />
+                <Button id="_IDGenButtonRejectService" text="Reject" type="Reject" press=".onCancel"/>
+                <Button id="_IDGenButtonSubmitService" text="Submit" press=".onSubmit"/>
+                <ToolbarSpacer id="_IDGenToolbarSpacerUnique" />
+            </Toolbar>
+        </footer>
     </Page>
 </mvc:View>
