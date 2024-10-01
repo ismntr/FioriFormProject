@@ -3,9 +3,9 @@
     xmlns:mvc="sap.ui.core.mvc" 
     xmlns:f="sap.ui.layout.form"
     xmlns="sap.m">
-    <Page id="_IDGenPageService" title="Service Order Details" class="sapUiContent">
+    <Page id="_IDGenPageService" title="Service Order Details" class="sapUiContent sapUiLargeMarginBottom">
         <content>
-            <f:SimpleForm id="_IDGenSimpleFormService" layout="ResponsiveGridLayout" width="100%">
+            <f:SimpleForm id="_IDGenSimpleFormService" class="sapUiLargeMarginBottom" layout="ResponsiveGridLayout" width="100%">
                 <Label id="_IDGenLabelSASService" text="Satın Alma Sipariş No (SAS No)"/>
                 <Input id="sasNoService" editable="false"/> <!-- SAS’dan akacak bilgi -->
 
@@ -85,13 +85,13 @@
 
                 <Label id="_IDGenLabelApproverService" text="Kabul Yapan"/>
                 <Label id="_IDGenLabelApproverNameService" text="Adı Soyadı"/>
-                <Input id="approverNameService"/>
+                <Input id="approverNameService" editable="false"/>
                 <Label id="_IDGenLabelApproverTitleService" text="Unvanı"/>
-                <Input id="approverTitleService"/>
+                <Input id="approverTitleService" editable="false"/>
                 <Label id="_IDGenLabelApprovalDateService" text="Tarih"/>
-                <DatePicker id="approvalDateService"/>
+                <DatePicker id="approvalDateService" editable="false"/>
                 <Label id="_IDGenLabelSignatureService" text="İmza"/>
-                <Input id="signatureService"/> <!-- Onaycı buraya gelecek -->
+                <Input id="signatureService" editable="false"/> <!-- Onaycı buraya gelecek -->
            
             </f:SimpleForm>
         </content>

@@ -5,12 +5,12 @@
     xmlns="sap.m">
 <Page id="_IDGenPage" title="Material Purchase Form" class="sapUiContent">
     <content>
-        <f:SimpleForm id="_IDGenSimpleForm" layout="ResponsiveGridLayout" width="auto">
+        <f:SimpleForm id="_IDGenSimpleForm" class="sapUiLargeMarginBottom" layout="ResponsiveGridLayout" width="auto">
             <Label id="_IDGenLabel1" text="Satın Alma Sipariş No (SAS No)"/>
             <Input id="sasNo" editable="false"/> <!-- SAS’dan akacak bilgi -->
 
             <Label id="_IDGenLabel2" text="Alınan Ürün/Malzeme/Hizmet Adı"/>
-            <TextArea id="productDetails"/> <!-- SAS’dan akacak, alt alta gelecek malzemeler -->
+            <TextArea id="productDetails" editable="false"/> <!-- SAS’dan akacak, alt alta gelecek malzemeler -->
 
             <Label id="_IDGenLabel3" text="Tedarikçi Firma"/>
             <Input id="supplier" editable="false"/> <!-- SAS’dan akacak veri -->
@@ -90,9 +90,9 @@
             <Label id="_IDGenLabel24" text="Unvanı"/>
             <Input id="approverTitle"/>
             <Label id="_IDGenLabel25" text="Tarih"/>
-            <DatePicker id="approvalDate"/>
+            <DatePicker id="approvalDate" editable="false"/>
             <Label id="_IDGenLabel26" text="İmza"/>
-            <Input id="signature"/> <!-- Onaycı buraya gelecek -->
+            <Input id="signature" editable="false"/> <!-- Onaycı buraya gelecek -->
 
            
         </f:SimpleForm>
@@ -100,7 +100,7 @@
         <footer>
         <Toolbar id="_IDGenToolbar1" class="sapUiMediumMargin" >
         <ToolbarSpacer id="_IDGenToolbarSpacer2" />
-                <ToolbarSpacer id="_IDGenToolbarSpacerUnique2"/>
+                <ToolbarSpacer id="_IDGenToolbarSpacerUnique3"/>
                 <Button class="sapUiMediumMargin" id="_IDGenButton2" text="Submit" press=".onSubmit" type="Emphasized"/>
                 <Button class="sapUiMediumMargin" id="_IDGenButton3" text="Reject" press=".onCancel" type="Reject"/>
         </Toolbar>

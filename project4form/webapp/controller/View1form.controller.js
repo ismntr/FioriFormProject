@@ -12,6 +12,18 @@ sap.ui.define([
 
         return Controller.extend("project4form.controller.View1form", {
             onInit: function () {
+                // DatePicker'ı ayarla ve devre dışı bırak
+                function setDateAndDisable(datePicker) {
+                    if (datePicker) {
+                        var oToday = new Date(); // Get today's date
+                        datePicker.setDateValue(oToday); // Set the current date to the DatePicker
+                        datePicker.setEditable(false); // Make the DatePicker non-editable
+                    }
+                }
+                var approvalDate = this.getView().byId("approvalDate");
+                var approvalDateService = this.getView().byId("approvalDateService");
+                setDateAndDisable(approvalDate);
+                setDateAndDisable(approvalDateService);
                 this._hasUnsavedChanges = false; // Kaydedilmemiş değişiklikleri takip etmek için flag
             },
             onInputChange: function () {
