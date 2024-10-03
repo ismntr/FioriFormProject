@@ -57,7 +57,7 @@
             <DatePicker id="temporaryAcceptanceDate" visible="{= ${contractExists/selectedIndex} === 0 }" /> <!-- Opsiyonel -->
 
             <Label id="_IDGenLabel16" text="Sözleşmeye göre işin bitim tarihi" visible="{= ${contractExists/selectedIndex} === 0 }" />
-            <DatePicker id="contractEndDate" visible="{= ${contractExists/selectedIndex} === 0 }" /> <!-- Opsiyonel -->
+            <DatePicker id="contractEndDate" visible="{= ${contractExists/selectedIndex} === 0 }" change="onContractEndDateChange" /> <!-- Opsiyonel -->
 
             <Label id="_IDGenLabel17" text="Varsa Teminat türü ve bedeli" visible="{= ${contractExists/selectedIndex} === 0 }" />
             <Input id="guaranteeType" type="Number" visible="{= ${contractExists/selectedIndex} === 0 }" /> <!-- Opsiyonel -->

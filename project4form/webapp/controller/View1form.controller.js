@@ -135,7 +135,20 @@ sap.ui.define([
                 this.getView().byId("temporaryAcceptanceDateService").setVisible(bSelected);
                 this.getView().byId("contractEndDateService").setVisible(bSelected);
                 this.getView().byId("guaranteeTypeService").setVisible(bSelected);
-            }
+            },
+
+            onContractEndDateChange: function () {
+                // Sözleşme bitiş tarihi değiştiğinde
+                var oContractEndDate = this.getView().byId("contractEndDate").getDateValue();
+                var oTemporaryAcceptanceDate = this.getView().byId("temporaryAcceptanceDate").getDateValue();
+
+                // Sözleşme bitiş tarihi ve geçici kabul tarihi arasındaki farkı hesapla
+                if (oContractEndDate && oTemporaryAcceptanceDate) {
+                    var iDifference = oContractEndDate.getTime() - oTemporaryAcceptanceDate.getTime();
+                    var iDifferenceInDays = iDifference / (1000 * 3600 * 24);
+                    this.getView().byId("contractDuration").setValue(iDifferenceInDays);
+                }
+            },
 
         });
     });
